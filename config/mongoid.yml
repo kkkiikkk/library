@@ -1,0 +1,19 @@
+development:
+  clients:
+    default:
+      database: library_development
+      hosts:
+        - localhost:27017
+      options:
+        # Add any additional options here
+
+test:
+  clients:
+    default:
+      database: library_test
+      hosts:
+        - localhost:27017
+      options:
+        read:
+          mode: :primary
+        max_pool_size: 1
