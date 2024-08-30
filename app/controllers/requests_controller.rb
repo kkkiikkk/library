@@ -16,7 +16,7 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:time_start, :time_end, :address)
+    params.require(:request).permit(:time_start, :time_end, :address, :phone_number)
   end
 
   def set_book

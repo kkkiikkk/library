@@ -13,7 +13,9 @@ class RequestCreationService
     request.book = book
 
     if policy.can_create?
-      request.save
+      if request.save
+        RequestMailer.request_created(request.id.to_s).deliver_later
+      end
     else
       request.errors.add(:base, 'A pending request for this book already exists for this user.')
     end
@@ -27,7 +29,8 @@ class RequestCreationService
     {
       time_start: combine_date('time_start'),
       time_end: combine_date('time_end'),
-      address: params[:address]
+      address: params[:address],
+      phone_number: params[:phone_number]
     }
   end
 
