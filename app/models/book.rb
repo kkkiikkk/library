@@ -2,11 +2,11 @@ class Book
   include Mongoid::Document
   include Mongoid::Slug
   field :name, type: String
-  field :image, type: String
   field :description, type: String
   field :author, type: String
   field :status, type: String
   slug :name
+  mount_uploader :image, ImageBookUploader
 
   include Mongoid::Timestamps
 

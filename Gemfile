@@ -11,7 +11,12 @@ gem 'mongoid', '~> 6.0'
 gem 'devise', '~> 4.8'
 gem 'nokogiri', '~> 1.15.6'
 gem 'mongoid-slug', '~> 6.0'
-gem 'activeadmin', '~> 3.2', '>= 3.2.4'
+gem 'activeadmin'
+gem 'activeadmin-mongoid'
+gem 'kaminari-mongoid'
+gem 'ransack', '< 1.8.7'
+gem 'carrierwave'
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
