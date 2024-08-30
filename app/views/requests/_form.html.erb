@@ -1,0 +1,25 @@
+<%= form_for [book, request] do |f| %>
+  <div class="field">
+    <%= f.label :time_start, "Start Date" %>
+    <%= f.date_select :time_start %>
+  </div>
+
+  <div class="field">
+    <%= f.label :time_end, "End Date" %>
+    <%= f.date_select :time_end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_number %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create Request" %>
+  </div>
+<% end %>

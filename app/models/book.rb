@@ -1,14 +1,17 @@
 class Book
   include Mongoid::Document
   include Mongoid::Slug
+  include Mongoid::Timestamps
+
+  has_many :requests
+
   field :name, type: String
   field :description, type: String
   field :author, type: String
   field :status, type: String
+  
   slug :name
   mount_uploader :image, ImageBookUploader
-
-  include Mongoid::Timestamps
 
   validates :name, presence: true
   validates :image, presence: true
