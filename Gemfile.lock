@@ -100,6 +100,13 @@ GEM
     mongoid (6.4.8)
       activemodel (>= 5.1, < 6.0.0)
       mongo (>= 2.5.1, < 3.0.0)
+    mongoid-compatibility (1.0.0)
+      activesupport
+      mongoid (>= 2.0)
+    mongoid-slug (6.0.1)
+      mongoid (>= 3.0)
+      mongoid-compatibility
+      stringex (~> 2.0)
     net-imap (0.4.15)
       date
       net-protocol
@@ -178,6 +185,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    stringex (2.8.6)
     strscan (3.1.0)
     thor (1.3.2)
     thread_safe (0.3.6)
@@ -215,6 +223,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   listen (~> 3.7)
   mongoid (~> 6.0)
+  mongoid-slug (~> 6.0)
   nokogiri (~> 1.15.6)
   puma (~> 3.7)
   rails (~> 5.1.7)

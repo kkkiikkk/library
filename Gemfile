@@ -10,7 +10,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'mongoid', '~> 6.0'
 gem 'devise', '~> 4.8'
 gem 'nokogiri', '~> 1.15.6'
-
+gem 'mongoid-slug', '~> 6.0'
+gem 'activeadmin', '~> 3.2', '>= 3.2.4'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
