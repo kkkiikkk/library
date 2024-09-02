@@ -20,6 +20,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Create Request" %>
+    <%= f.submit "Create Request", disabled: book.status == 'out' %>
   </div>
 <% end %>
