@@ -29,7 +29,7 @@ ActiveAdmin.register Request do
       f.input :time_start, as: :datepicker
       f.input :time_end, as: :datepicker
       f.input :address
-      f.input :status, as: :select, collection: ['pending', 'accepted']
+      f.input :status, as: :select, collection: ['pending', 'accepted', 'failed']
     end
     f.actions
   end
