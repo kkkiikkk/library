@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Request approved. Wait for your book</h1>
+    <p>Dear <%= @user.email %>,</p>
+    <p>Your request for the book "<%= @request.book.name %>" has been successfully approved.</p>
+    <p>Start Date: <%= @request.time_start %></p>
+    <p>End Date: <%= @request.time_end %></p>
+    <p>Status: <%= @request.status %></p>
+  </body>
+</html>
