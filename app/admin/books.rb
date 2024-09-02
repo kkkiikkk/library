@@ -39,4 +39,10 @@ ActiveAdmin.register Book do
     end
     f.actions
   end
+
+  sidebar :history, only: :show do
+    ul do
+      li link_to "View Action History", admin_book_history_path(book)
+    end
+  end
 end

@@ -1,18 +1,20 @@
 <h3>History of taking</h3>
 
-<% if @book.actions.any? %>
+<% if book.actions.any? %>
   <table class="table">
     <thead>
       <tr>
         <th>User</th>
-        <th>Date</th>
+        <th>Date taken</th>
+        <th>Date returned</th>
       </tr>
     </thead>
     <tbody>
-      <% @book.actions.each do |action| %>
+      <% book.actions.each_with_index do |action, index| %>
         <tr>
           <td><%= action.user.email %></td>
-          <td><%= action.created_at.strftime("%B %d, %Y at %I:%M %p") %></td>
+          <td><%= book.requests[index].time_start.strftime("%B %d, %Y at %I:%M %p") %></td>
+          <td><%= book.requests[index].time_end.strftime("%B %d, %Y at %I:%M %p") %></td>
         </tr>
       <% end %>
     </tbody>
