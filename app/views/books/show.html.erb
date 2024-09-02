@@ -15,6 +15,9 @@
   <%= @book.description %>
 </p>
 
+<%= render 'comments/list_comments', book: @book %>
+<%= render 'comments/form_comment', book: @book %>
+
 <p>
   <strong>Author:</strong>
   <%= @book.author %>

@@ -4,6 +4,7 @@ class User
 
   has_many :requests
   has_many :likes
+  has_many :comments
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
