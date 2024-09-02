@@ -3,6 +3,7 @@ class User
   include Mongoid::Timestamps
 
   has_many :requests
+  has_many :likes
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
