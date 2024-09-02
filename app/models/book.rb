@@ -5,6 +5,7 @@ class Book
 
   has_many :requests
   has_many :likes
+  has_many :comments
 
   field :name, type: String
   field :description, type: String
