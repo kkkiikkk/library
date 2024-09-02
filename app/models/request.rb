@@ -34,6 +34,8 @@ class Request
     case status
     when 'accepted'
       RequestMailer.request_accepted(id).deliver_now
+      book.update(status: 'out')
+      Action.create(book: book, user: user)
     when 'failed'
       RequestMailer.request_failed(id).deliver_now
     end

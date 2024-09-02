@@ -7,5 +7,6 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @like_count = @book.likes_count
     @average_rating = @book.average_rating
+    @actions = @book.actions
   end
 end

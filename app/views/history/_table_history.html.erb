@@ -1,0 +1,22 @@
+<h3>History of taking</h3>
+
+<% if @book.actions.any? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @book.actions.each do |action| %>
+        <tr>
+          <td><%= action.user.email %></td>
+          <td><%= action.created_at.strftime("%B %d, %Y at %I:%M %p") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No history available for this book.</p>
+<% end %>

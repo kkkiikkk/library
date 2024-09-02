@@ -30,6 +30,8 @@
 
 <%= render 'requests/form', book: @book, request: @book.requests.build %>
 
+<%= render 'history/table_history', book: @book %>
+
 <%= link_to 'Back to Books', books_path %>
 
 <%= form_with url: book_likes_path(@book), method: :post, local: true do |form| %>
