@@ -1,15 +1,17 @@
-<h2>Comments</h2>
+<h2 class="text-white">Comments</h2>
 
 <% if book.comments.any? %>
-  <ul>
-    <% book.comments.each do |comment| %>
-      <li>
-        <strong><%= comment.user.email %>:</strong>
-        <p><%= comment.caption %></p>
-        <small>Posted on <%= comment.created_at.strftime("%B %d, %Y at %I:%M %p") %></small>
-      </li>
-    <% end %>
-  </ul>
+  <div class="comments-list mt-4">
+    <ul class="list-group">
+      <% book.comments.each do |comment| %>
+        <li class="list-group-item comment-item mb-2">
+          <strong><%= comment.user.email %>:</strong>
+          <p><%= comment.caption %></p>
+          <small class="text-muted">Posted on <%= comment.created_at.strftime("%B %d, %Y at %I:%M %p") %></small>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 <% else %>
-  <p>No comments yet. Be the first to comment!</p>
+  <p class="text-light">No comments yet. Be the first to comment!</p>
 <% end %>

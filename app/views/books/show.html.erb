@@ -1,46 +1,68 @@
-<h1><%= @book.name %></h1>
+<div class="container book-details-page mt-4">
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag(@book.image.url, alt: @book.name, class: 'img-fluid book-image') if @book.image? %>
+    </div>
+    <div class="col-md-8">
+      <h1 class="text-white"><%= @book.name %></h1>
+      <p>
+        <strong>Average Rating:</strong>
+        <%= @average_rating %>
+      </p>
+      <p>
+        <strong>Count Likes:</strong>
+        <%= @like_count %>
+      </p>
+      <p>
+        <strong>Description:</strong>
+        <%= @book.description %>
+      </p>
+      <p>
+        <strong>Author:</strong>
+        <%= @book.author %>
+      </p>
+      <p>
+        <strong>Status:</strong>
+        <%= @book.status %>
+      </p>
 
-<p>
-  <strong>Average Rating:</strong>
-  <%= @average_rating %>
-</p>
+      <% if @book.status == 'out' %>
+        <button type="button" class="btn btn-outline-light mt-3" disabled>
+          Request this Book (Currently Unavailable)
+        </button>
+      <% else %>
+        <button type="button" class="btn btn-outline-light mt-3" data-toggle="modal" data-target="#requestFormModal">
+          Request this Book
+        </button>
+      <% end %>
 
-<p>
-  <strong>Count Likes:</strong>
-  <%= @like_count %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @book.description %>
-</p>
-
-<%= render 'comments/list_comments', book: @book %>
-<%= render 'comments/form_comment', book: @book %>
-
-<p>
-  <strong>Author:</strong>
-  <%= @book.author %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @book.status %>
-</p>
-
-<%= render 'requests/form', book: @book, request: @book.requests.build %>
-
-<%= render 'history/table_history', book: @book %>
-
-<%= link_to 'Back to Books', books_path %>
-
-<%= form_with url: book_likes_path(@book), method: :post, local: true do |form| %>
-  <%= form.hidden_field :book_id, value: @book.id %>
-
-  <div>
-    <%= form.label :rate, "Rate this book (1 to 5):" %>
-    <%= form.number_field :rate, in: 1..5, step: 1, value: 5 %>
+    </div>
   </div>
 
-  <%= form.submit "Like this book" %>
-<% end %>
+  <div class="comments-section mt-5">
+    <%= render 'comments/list_comments', book: @book %>
+    <%= render 'comments/form_comment', book: @book %>
+  </div>
+
+  <div class="history-section mt-5">
+    <%= render 'history/table_history', book: @book %>
+  </div>
+
+  <%= link_to 'Back to Books', books_path, class: 'btn back-link mt-3' %>
+</div>
+
+<div class="modal fade" id="requestFormModal" tabindex="-1" role="dialog" aria-labelledby="requestFormModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="requestFormModalLabel">Request this Book</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render 'requests/form', book: @book, request: @book.requests.build %>
+      </div>
+    </div>
+  </div>
+</div>
