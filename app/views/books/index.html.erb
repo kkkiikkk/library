@@ -1,26 +1,29 @@
-<h1>Books</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Author</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @books.each do |book| %>
-      <tr>
-        <td>
-          <%= image_tag(book.image.url, alt: book.name, width: 50, height: 50) %>
-        </td>
-        <td><%= link_to book.name, book_path(book) %></td>
-        <td><%= book.description %></td>
-        <td><%= book.author %></td>
-        <td><%= book.status %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container mt-4">
+  <h1 class="text-white">Books</h1>
+  <div class="table-responsive">
+    <table class="table books-table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Author</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @books.each do |book| %>
+          <tr>
+            <td>
+              <%= image_tag(book.image.url, alt: book.name, width: 50, height: 50, class: 'book-image') %>
+            </td>
+            <td><%= link_to book.name, book_path(book), class: 'text-white' %></td>
+            <td><%= book.description.truncate(100) %></td>
+            <td><%= book.author %></td>
+            <td><%= book.status %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
