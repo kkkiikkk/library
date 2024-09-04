@@ -37,3 +37,6 @@ gem "rspec", "~> 3.13"
 gem "rspec-rails", "~> 4.1"
 
 gem "factory_bot_rails", "~> 6.4"
+
+gem 'bootstrap', '~> 4.0.0'
+gem 'jquery-rails'
