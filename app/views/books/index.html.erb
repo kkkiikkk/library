@@ -1,29 +1,17 @@
 <div class="container mt-4">
-  <h1 class="text-white">Books</h1>
-  <div class="table-responsive">
-    <table class="table books-table">
-      <thead>
-        <tr>
-          <th>Image</th>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Author</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @books.each do |book| %>
-          <tr>
-            <td>
-              <%= image_tag(book.image.url, alt: book.name, width: 50, height: 50, class: 'book-image') %>
-            </td>
-            <td><%= link_to book.name, book_path(book), class: 'text-white' %></td>
-            <td><%= book.description.truncate(100) %></td>
-            <td><%= book.author %></td>
-            <td><%= book.status %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+  <h2 class="text-white">Popular Books</h2>
+  <div class="row">
+    <% @books.each do |book| %>
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <div class="card book-card">
+          <%= image_tag(book.image.url, class: 'card-img-top', alt: book.name) if book.image? %>
+          <div class="card-body">
+            <h5 class="card-title text-white"><%= book.name %></h5>
+            <p class="card-text text-light"><%= book.description.truncate(100) %></p>
+            <%= link_to 'View Book', book_path(book), class: 'btn btn-outline-light' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
