@@ -347,6 +347,7 @@ DEPENDENCIES
   factory_bot_rails (~> 6.4)
   jbuilder (~> 2.5)
   jquery-rails
+  kaminari (~> 1.2)
   kaminari-mongoid
   listen (~> 3.7)
   mongoid (~> 6.0)
