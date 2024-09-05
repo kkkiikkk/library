@@ -34,3 +34,58 @@
     }
   }
 }
+
+.filter-panel {
+  position: fixed;
+  right: -480px; // Hide it off the screen initially
+  top: 0;
+  height: 100%;
+  width: 300px;
+  background-color: #343a40;
+  box-shadow: -3px 0 5px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  transition: right 0.3s ease;
+  z-index: 1000;
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+}
+
+.filter-panel.active {
+  right: 0; // Bring the panel into view
+}
+
+#toggle-filters {
+  margin-bottom: 20px;
+}
+
+input {
+  color: white !important;
+}
+
+.form-control {
+  background-color: #495057;
+  border: 1px solid #6c757d;
+  color: #fff;
+  &:focus {
+    background-color: #343a40;
+    border-color: #6c757d;
+  }
+}
+
+.form-group label {
+  color: #f8f9fa !important; // Light color for better contrast
+}
+
+.btn-outline-light {
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: #495057 !important;
+}
+
+@media (max-width: 767px) {
+  .filter-panel {
+    width: 100%; // Full width on mobile
+  }
+}

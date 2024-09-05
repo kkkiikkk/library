@@ -1,4 +1,36 @@
 <div class="container mt-4">
+  <div class="filter-sort-toggle">
+    <button class="btn btn-outline-light" id="toggle-filters">Filter & Sort</button>
+  </div>
+
+  <div id="filter-panel" class="filter-panel">
+    <div class="filter-sort-bar">
+      <%= form_with url: books_path, method: :get, local: true, class: 'form-inline' do %>
+        <div class="form-group">
+          <%= label_tag :search, 'Search by name', class: 'text-light' %>
+          <%= text_field_tag :search, params[:search], class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= label_tag :status, 'Filter by status', class: 'text-light' %>
+          <%= select_tag :status, options_for_select([['All', ''], ['In', 'in'], ['Out', 'out']], params[:status]), class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= label_tag :author, 'Filter by author', class: 'text-light' %>
+          <%= text_field_tag :author, params[:author], class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= label_tag :sort, 'Sort by', class: 'text-light' %>
+          <%= select_tag :sort, options_for_select([['Newest', 'created_at'], ['Name', 'name'], ['Author', 'author'], ['Likes', 'likes']], params[:sort]), class: 'form-control' %>
+        </div>
+
+        <%= submit_tag 'Apply', class: 'btn btn-outline-light' %>
+      <% end %>
+    </div>
+  </div>
+
   <% if @books.any? %>
     <div class="row">
       <% @books.each do |book| %>
@@ -14,6 +46,7 @@
         </div>
       <% end %>
     </div>
+
     <div class="pagination-links">
       <%= paginate @books %>
     </div>
