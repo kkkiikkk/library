@@ -26,43 +26,32 @@
         <%= @book.status %>
       </p>
 
-      <% if @book.status == 'out' %>
-        <button type="button" class="btn btn-outline-light mt-3" disabled>
-          Request this Book (Currently Unavailable)
-        </button>
-      <% else %>
-        <button type="button" class="btn btn-outline-light mt-3" data-toggle="modal" data-target="#requestFormModal">
-          Request this Book
-        </button>
-      <% end %>
+      <div class="star-rating">
+        <form id="ratingForm" action="<%= book_likes_path(@book) %>" method="post">
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <fieldset class="rating">
+            <% 5.downto(1) do |star| %>
+              <input type="radio" id="star<%= star %>" name="rate" value="<%= star %>" <%= 'checked' if @average_rating <= star %> />
+              <label for="star<%= star %>" title="<%= star %> stars">&#9733;</label>
+            <% end %>
+          </fieldset>
+        </form>
+      </div>
+
+
+      <div>
+        <% if @book.status == 'out' %>
+          <button type="button" class="btn btn-outline-light mt-3" disabled>
+            Request this Book (Currently Unavailable)
+          </button>
+        <% else %>
+          <button type="button" class="btn btn-outline-light mt-3" data-toggle="modal" data-target="#requestFormModal">
+            Request this Book
+          </button>
+        <% end %>
+      </div>
 
     </div>
   </div>
-
-  <div class="comments-section mt-5">
-    <%= render 'comments/list_comments', book: @book %>
-    <%= render 'comments/form_comment', book: @book %>
-  </div>
-
-  <div class="history-section mt-5">
-    <%= render 'history/table_history', book: @book %>
-  </div>
-
   <%= link_to 'Back to Books', books_path, class: 'btn back-link mt-3' %>
-</div>
-
-<div class="modal fade" id="requestFormModal" tabindex="-1" role="dialog" aria-labelledby="requestFormModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="requestFormModalLabel">Request this Book</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <%= render 'requests/form', book: @book, request: @book.requests.build %>
-      </div>
-    </div>
-  </div>
 </div>
