@@ -11,6 +11,7 @@ ActionMailer::Base.delivery_method = :test
 Rails.configuration.developer_response_grace_period = nil
 
 puts "Seeding #{Rails.env} database..."
+seed "admins"
 seed "books"
 puts "Seeded database"
 
