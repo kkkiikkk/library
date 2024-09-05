@@ -1,0 +1,65 @@
+.comments-list {
+  margin-top: 2rem;
+
+  .comment-item {
+    background-color: #5a6268;
+    border: 1px solid #495057;
+    padding: 1rem;
+    border-radius: 5px;
+    color: #f8f9fa;
+
+    p {
+      margin-bottom: 0.5rem;
+    }
+
+    strong {
+      color: #f8f9fa;
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+
+    small {
+      color: #dcdcdc;
+    }
+
+    &:hover {
+      background-color: #495057;
+    }
+  }
+}
+
+.comment-form {
+  margin-top: 2rem;
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  label {
+    color: #f8f9fa;
+    font-weight: bold;
+  }
+
+  textarea {
+    background-color: #6c757d;
+    color: #f8f9fa;
+    border: 1px solid #495057;
+    border-radius: 5px;
+
+    &:focus {
+      background-color: #5a6268;
+      border-color: #f8f9fa;
+      box-shadow: none;
+    }
+  }
+
+  .btn-outline-light {
+    border-color: #f8f9fa;
+    color: #f8f9fa;
+
+    &:hover {
+      background-color: #f8f9fa;
+      color: #6c757d;
+    }
+  }
+}

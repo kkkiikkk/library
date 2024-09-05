@@ -1,0 +1,36 @@
+.book-card {
+  background-color: #6c757d;
+  border: 1px solid #5a6268;
+  border-radius: 0.25rem;
+  .card-body {
+    background-color: #5a6268;
+    .card-title {
+      color: #fff;
+    }
+    .card-text {
+      color: #dcdcdc;
+    }
+    .btn-outline-light {
+      border-color: #fff;
+      color: #fff;
+      &:hover {
+        background-color: #fff;
+        color: #6c757d;
+      }
+    }
+  }
+
+  .card-img-top {
+    border-bottom: 1px solid #5a6268;
+    object-fit: cover;
+    height: 200px;
+  }
+}
+
+@media (max-width: 767px) {
+  .book-card {
+    .card-img-top {
+      height: 150px;
+    }
+  }
+}
