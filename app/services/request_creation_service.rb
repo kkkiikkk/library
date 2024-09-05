@@ -14,7 +14,7 @@ class RequestCreationService
 
     if policy.can_create?
       if request.save
-        RequestMailer.request_created(request.id.to_s).deliver_later
+        RequestMailer.request_confirmation(request.id.to_s).deliver_later
       end
     else
       request.errors.add(:base, 'A pending request for this book already exists for this user.')

@@ -18,4 +18,13 @@ class RequestMailer < ApplicationMailer
     @user = @request.user
     mail(to: @user.email, subject: 'Your Request has been approved')
   end
+
+  def request_confirmation(request_id)
+    @request = Request.find(request_id)
+    @user = @request.user
+    @book = @request.book
+    mail(to: @user.email, subject: 'Confirm your request') do |format|
+      format.html { render 'request_confirmation' }
+    end
+  end
 end

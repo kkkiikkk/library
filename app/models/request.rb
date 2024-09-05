@@ -10,6 +10,7 @@ class Request
   field :address, type: String
   field :status, type: String, default: "pending"
   field :phone_number, type: String
+  field :confirmed, type: Boolean, default: false
 
   validates :user, presence: true
   validates :book, presence: true

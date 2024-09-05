@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :books, only: [:index, :show] do 
-    resources :requests, only: [:create]
+    resources :requests, only: [:create] do 
+      member do
+        get 'confirm'
+      end
+    end
     resources :likes, only: [:create]
     resources :comments, only: [:create]
   end
