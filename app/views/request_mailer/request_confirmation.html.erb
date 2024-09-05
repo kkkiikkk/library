@@ -1,0 +1,8 @@
+<p>Hi <%= @user.email %>,</p>
+<p>You have requested the book "<%= @book.name %>". Please confirm your request by clicking the link below:</p>
+
+<p>
+  <%= link_to 'Confirm Request', confirm_book_request_url(@book, @request) %>
+</p>
+
+<p>Thank you!</p>
