@@ -1,6 +1,11 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.all
+    if params[:search].present?
+      @books = Book.where(name: /#{params[:search]}/i)
+    else
+      @books = Book.all
+    end
+    flash.now[:notice] = 'No books found' if @books.empty?
   end
 
   def show

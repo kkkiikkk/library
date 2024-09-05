@@ -2,9 +2,9 @@
   background-color: #6c757d; // Gray background
   .navbar-brand,
   .nav-link {
-    color: #fff;
+    color: #fff; // White text
     &:hover {
-      color: #dcdcdc;
+      color: #dcdcdc; // Lighter gray on hover
     }
   }
 
@@ -22,7 +22,9 @@
     color: white;
 
     &:focus {
-      display: none;
+      border-color: #fff;
+      background-color: #5a6268;
+      color: white;
     }
   }
 
