@@ -2,9 +2,9 @@
   background-color: #6c757d; // Gray background
   .navbar-brand,
   .nav-link {
-    color: #fff; // White text
+    color: #fff;
     &:hover {
-      color: #dcdcdc; // Lighter gray on hover
+      color: #dcdcdc;
     }
   }
 
@@ -22,8 +22,7 @@
     color: white;
 
     &:focus {
-      border-color: #fff;
-      background-color: #5a6268;
+      display: none;
     }
   }
 
@@ -36,4 +35,8 @@
       color: #6c757d;
     }
   }
+}
+
+textarea {
+  color: #fff !important;
 }
