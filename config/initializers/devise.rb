@@ -15,4 +15,5 @@ Devise.setup do |config|
   config.sign_out_via = :get
   config.responder.error_status = :unprocessable_entity
   config.responder.redirect_status = :see_other
+  config.secret_key = 'dff204fa172fa41120218d9aef76429dad88df8e701f15423b8fbb69a02879c3b17930a7b31d299764e80b374b586c010e3dae658415cd89c5b6f399288c7966'
 end

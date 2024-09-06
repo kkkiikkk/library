@@ -5,7 +5,6 @@ development:
       hosts:
         - localhost:27017
       options:
-        # Add any additional options here
 
 test:
   clients:
@@ -17,3 +16,10 @@ test:
         read:
           mode: :primary
         max_pool_size: 1
+
+production:
+  clients:
+    default:
+      database: <%= ENV['MONGODB_DB'] || 'library_production' %>
+      hosts:
+        - <%= ENV['MONGODB_HOST'] || 'localhost' %>:<%= ENV['MONGODB_PORT'] || 27017 %>

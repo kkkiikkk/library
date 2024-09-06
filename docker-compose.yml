@@ -1,0 +1,28 @@
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    environment:
+      RAILS_ENV: 'production'
+      MONGODB_HOST: 'db'
+      MONGODB_PORT: 27017
+      MONGODB_DB: 'lib_prod'
+      SECRET_KEY_BASE: 'super_secret_key'
+
+
+  db:
+    image: mongo:6-jammy
+    ports:
+      - "${MONGODB_PORT:-27017}:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: ${MONGODB_DB:-smog}
+
+volumes:
+  mongodb_data:
