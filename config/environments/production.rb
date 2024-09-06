@@ -18,6 +18,7 @@ Rails.application.configure do
 
   config.log_tags = [:request_id]
   config.i18n.fallbacks = true
+  config.public_file_server.enabled = true
   config.active_support.deprecation = :notify
   config.log_formatter = ::Logger::Formatter.new
   if ENV["RAILS_LOG_TO_STDOUT"].present?
