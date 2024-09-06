@@ -22,7 +22,7 @@
     </ul>
 
     <%= form_with(url: books_path, method: :get, class: 'form-inline my-2 my-lg-0', local: true) do |form| %>
-      <%= form.text_field :search, value: params[:search], class: 'form-control mr-sm-2', placeholder: 'Search Books', aria: { label: 'Search' } %>
+      <%= form.text_field :search, value: params[:search], class: 'form-control mr-sm-2 search-input', placeholder: 'Search Books', aria: { label: 'Search' } %>
       <%= form.submit 'Search', class: 'btn btn-outline-light my-2 my-sm-0' %>
     <% end %>
   </div>
