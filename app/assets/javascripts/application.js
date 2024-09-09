@@ -4,6 +4,4 @@
 //= require bootstrap
 //= require rails-ujs
 //= require turbolinks
-//= require book
-//= require filter
 //= require_tree .
