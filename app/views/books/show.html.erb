@@ -62,7 +62,7 @@
     <%= render 'history/table_history', book: @book %>
   </div>
 
-  <%= link_to 'Back to Books', books_path, class: 'btn back-link mt-3' %>
+  <%= link_to 'Back to Books', books_path, class: 'btn back-link mt-3', data: { turbolinks: false } %>
 </div>
 
 <div class="modal fade" id="requestFormModal" tabindex="-1" role="dialog" aria-labelledby="requestFormModalLabel" aria-hidden="true">

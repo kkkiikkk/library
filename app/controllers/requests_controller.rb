@@ -15,7 +15,7 @@ class RequestsController < ApplicationController
   end
 
   def confirm
-    if @request.update(confirmed: true, status: 'accepted')
+    if @request.update(confirmed: true)
       redirect_to book_path(@request.book), notice: 'Request confirmed successfully.'
     else
       redirect_to book_path(@request.book), alert: "Failed to confirm the request."

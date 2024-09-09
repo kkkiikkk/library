@@ -1,10 +1,10 @@
 .navbar-gray {
-  background-color: #6c757d; // Gray background
+  background-color: #6c757d;
   .navbar-brand,
   .nav-link {
-    color: #fff; // White text
+    color: #fff;
     &:hover {
-      color: #dcdcdc; // Lighter gray on hover
+      color: #dcdcdc;
     }
   }
 
@@ -41,4 +41,20 @@
 
 textarea {
   color: #fff !important;
+}
+
+.search-input {
+  width: 100% !important;
+  max-width: 300px;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc; 
+  background-color: #f8f9fa;
+}
+
+@media (max-width: 768px) {
+  .search-input {
+    max-width: 2500px;
+    max-width: 100%;
+  }
 }

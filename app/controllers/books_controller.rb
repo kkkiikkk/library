@@ -3,15 +3,19 @@ class BooksController < ApplicationController
     @books = Book.all
 
     if params[:search].present?
-      @books = @books.where(name: /#{params[:search]}/i)
+      @books = @books.where(name: /#{Regexp.escape(params[:search])}/i)
     end
 
     if params[:status].present?
-      @books = @books.where(status: params[:status])
+      if ['in', 'out'].include?(params[:status])
+        @books = @books.where(status: params[:status])
+      else
+        flash.now[:alert] = "#{params[:status]} is not a valid status"
+      end
     end
 
     if params[:author].present?
-      @books = @books.where(author: /#{params[:author]}/i)
+      @books = @books.where(author: /#{Regexp.escape(params[:author])}/i)
     end
 
     case params[:sort]
@@ -20,12 +24,13 @@ class BooksController < ApplicationController
     when 'author'
       @books = @books.order_by(author: :asc)
     when 'likes'
-      @books = @books.sort_by { |book| book.likes_count }
+      @books = @books.sort_by(&:likes_count)
     else
       @books = @books.order_by(created_at: :desc)
     end
 
     @books = @books.page(params[:page]).per(5)
+
     flash.now[:notice] = 'No books found' if @books.empty?
   end
 

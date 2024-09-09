@@ -8,7 +8,7 @@
           <div class="card-body">
             <h5 class="card-title text-white"><%= book.name %></h5>
             <p class="card-text text-light"><%= book.description.truncate(100) %></p>
-            <%= link_to 'View Book', book_path(book), class: 'btn btn-outline-light' %>
+            <%= link_to 'View Book', book_path(book), class: 'btn btn-outline-light', data: { turbolinks: false } %>
           </div>
         </div>
       </div>

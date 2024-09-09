@@ -134,3 +134,91 @@
   background-color: #6c757d;
   color: #fff;
 }
+
+.request-form {
+  background-color: #5a6268; // Dark gray background for the form
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Slight shadow
+  margin-bottom: 2rem;
+
+  .field {
+    margin-bottom: 1.5rem;
+
+    label {
+      font-size: 1rem;
+      color: #f8f9fa; // Light color for labels
+      margin-bottom: 0.5rem;
+      display: block; // Ensure the label is on its own line
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    select {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #6c757d;
+      border: 1px solid #5a6268;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 1rem;
+      box-sizing: border-box;
+
+      &:focus {
+        background-color: #495057;
+        border-color: #f8f9fa;
+        outline: none;
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+
+    input[type="submit"] {
+      background-color: #f8f9fa;
+      color: #6c757d;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+
+      &:hover {
+        background-color: #fff;
+        color: #343a40;
+      }
+
+      &:disabled {
+        background-color: #6c757d;
+        color: #fff;
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+// Responsive styles for mobile
+@media (max-width: 767px) {
+  .request-form {
+    padding: 1rem;
+
+    label {
+      font-size: 0.9rem;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    select {
+      font-size: 0.9rem;
+      padding: 0.65rem;
+    }
+
+    .actions input[type="submit"] {
+      font-size: 0.9rem;
+    }
+  }
+}

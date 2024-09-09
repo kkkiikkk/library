@@ -3,4 +3,5 @@ document.addEventListener 'DOMContentLoaded', ->
 
   stars.forEach (star) ->
     star.addEventListener 'change', ->
+      console.log('change')
       document.getElementById('ratingForm').submit()
